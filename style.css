@@ -1,0 +1,2057 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at center, #302717 0%, #1b1915 55%, #0a0a09 100%);
+
+    color: #f5cf72;
+
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD
+========================================================= */
+
+#mainDashboard {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    border: 10px solid #8f6b2c;
+
+    padding: 25px 30px;
+
+    overflow: hidden;
+}
+
+#mainDashboard::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border: 1px solid rgba(245, 207, 114, 0.25);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   DECORATIVE GEARS
+========================================================= */
+
+.gear {
+
+    position: absolute;
+
+    color: rgba(190, 145, 60, 0.12);
+
+    font-size: 150px;
+
+    pointer-events: none;
+}
+
+.gear-left {
+    top: 15%;
+    left: -40px;
+}
+
+.gear-right {
+    top: 20%;
+    right: -45px;
+}
+
+.gear-bottom-left {
+    bottom: -50px;
+    left: 15%;
+}
+
+.gear-bottom-right {
+    bottom: -50px;
+    right: 12%;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.top-header {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+.title-panel {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 30px;
+
+    background: linear-gradient(
+        145deg,
+        #292219,
+        #181611,
+        #262016
+    );
+
+    border: 2px solid #a77b30;
+
+    box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, 0.55),
+        0 0 20px rgba(0, 0, 0, 0.4);
+
+    flex: 1;
+}
+
+.title-content h1 {
+
+    font-size: clamp(20px, 2.5vw, 36px);
+
+    letter-spacing: 2px;
+
+    line-height: 1.1;
+
+    color: #f5cf72;
+}
+
+.subtitle {
+
+    margin-top: 10px;
+
+    color: #d3a44e;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+}
+
+.subtitle span {
+
+    color: #fff0a9;
+
+    margin: 0 7px;
+}
+
+.gear-small {
+
+    font-size: 38px;
+
+    color: #a77b30;
+}
+
+.system-status {
+
+    min-width: 220px;
+
+    padding: 18px;
+
+    background: linear-gradient(
+        145deg,
+        #292219,
+        #171511
+    );
+
+    border: 2px solid #8f6b2c;
+
+    text-align: center;
+}
+
+.status-title {
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.status-light,
+.jog-status-light {
+
+    display: inline-block;
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #62d66f;
+
+    box-shadow: 0 0 12px #62d66f;
+
+    margin-right: 7px;
+}
+
+.date {
+
+    margin-top: 8px;
+
+    font-size: 11px;
+
+    color: #b99a61;
+}
+
+.time {
+
+    margin-top: 7px;
+
+    font-size: 24px;
+
+    letter-spacing: 3px;
+}
+
+
+
+/* =========================================================
+   MAIN MODE CARDS
+========================================================= */
+
+.mode-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 18px;
+
+    margin-top: 45px;
+}
+
+.mode-card {
+
+    position: relative;
+
+    min-height: 300px;
+
+    padding: 25px 18px;
+
+    color: #f5cf72;
+
+    background:
+        linear-gradient(
+            145deg,
+            #2a241b,
+            #1b1915,
+            #282117
+        );
+
+    border: 2px solid #96702f;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.mode-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: #f5cf72;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 0 20px rgba(245, 207, 114, 0.08);
+}
+
+.card-number {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 15px;
+
+    font-size: 13px;
+
+    color: #a98a50;
+}
+
+.gear-icon {
+
+    position: relative;
+
+    font-size: 65px;
+
+    margin: 15px auto 20px;
+
+    width: fit-content;
+
+    color: #9e7835;
+}
+
+.gear-icon span {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 20px;
+
+    color: #f5cf72;
+}
+
+.mode-card h2 {
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+}
+
+.card-line {
+
+    height: 1px;
+
+    background: #9b7430;
+
+    margin: 15px 0;
+}
+
+.mode-card p {
+
+    color: #c5ad7b;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.bottom-footer {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 30px;
+
+    right: 30px;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.footer-box,
+.controller-box {
+
+    padding: 10px 16px;
+
+    border: 1px solid #745824;
+
+    background: rgba(30, 26, 20, 0.85);
+
+    color: #c5ad7b;
+
+    font-size: 11px;
+}
+
+.footer-box {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.footer-box strong {
+
+    color: #f5cf72;
+}
+
+.controller-box {
+
+    color: #d8b35d;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   JOG PAGE
+========================================================= */
+
+.jog-page {
+
+    display: none;
+
+    min-height: 100vh;
+
+    height: 100vh;
+
+    box-sizing: border-box;
+
+    padding: 18px 24px;
+
+    background:
+        radial-gradient(circle at 50% 0%, #142936 0%, transparent 45%),
+        linear-gradient(135deg, #080d12, #0d151c 50%, #080d12);
+
+    color: #eef7fa;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   JOG HEADER
+========================================================= */
+
+.jog-header {
+
+    height: 82px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 20px;
+
+    background: linear-gradient(
+        135deg,
+        #101d26,
+        #152630
+    );
+
+    border: 1px solid #28556a;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 25px rgba(0, 217, 255, 0.07),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.jog-kicker {
+
+    color: #00d9ff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.jog-header h1 {
+
+    margin: 2px 0;
+
+    font-size: 27px;
+
+    letter-spacing: 2px;
+
+    color: #f5fbff;
+}
+
+.jog-header p {
+
+    margin: 0;
+
+    color: #91adba;
+
+    font-size: 12px;
+}
+
+.jog-status {
+
+    color: #18c964;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.status-dot {
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #18c964;
+
+    box-shadow:
+        0 0 10px rgba(24, 201, 100, 0.7);
+}
+
+
+/* =========================================================
+   MAIN JOG 3-COLUMN LAYOUT
+========================================================= */
+
+.jog-controls {
+
+    height: calc(100vh - 165px);
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr
+        0.85fr
+        1.15fr;
+
+    gap: 16px;
+
+    margin-top: 14px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   ACTUATOR GROUPS
+========================================================= */
+
+.actuator-group {
+
+    min-width: 0;
+
+    min-height: 0;
+
+    padding: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111e27,
+            #0e1921
+        );
+
+    border: 1px solid #254858;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.025),
+        0 8px 20px rgba(0,0,0,0.25);
+}
+
+
+/* =========================================================
+   GROUP TITLES
+========================================================= */
+
+.group-title {
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-bottom: 7px;
+
+    border-bottom: 1px solid #25404d;
+
+    color: #00d9ff;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.group-title span {
+
+    color: #ffb547;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ACTUATOR CARDS
+========================================================= */
+
+.actuator-card {
+
+    flex: 1;
+
+    min-height: 0;
+
+    padding: 11px 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1a2b35,
+            #14232c
+        );
+
+    border: 1px solid #2d4c5b;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 6px;
+
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease,
+        transform 0.15s ease;
+}
+
+.actuator-card:hover {
+
+    border-color: #397b94;
+
+    background: #1b303b;
+}
+
+
+/* =========================================================
+   ACTUATOR NUMBER
+========================================================= */
+
+.actuator-number {
+
+    color: #ffb547;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   ACTUATOR NAME
+========================================================= */
+
+.actuator-name {
+
+    color: #f2f7fa;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   BUTTON BASE
+   SOLID GREEN
+========================================================= */
+
+.jog-action {
+
+    width: 100%;
+
+    min-height: 38px;
+
+    border: 2px solid #00ff66;
+
+    border-radius: 6px;
+
+    background: #00d957;
+
+    color: #06130b;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.1s ease,
+        border-color 0.1s ease,
+        color 0.1s ease,
+        box-shadow 0.1s ease,
+        transform 0.08s ease;
+
+    -webkit-user-select: none;
+    user-select: none;
+
+    -webkit-touch-callout: none;
+}
+
+
+/* =========================================================
+   GREEN BUTTON HOVER
+========================================================= */
+
+.jog-action:hover {
+
+    background: #00ff66;
+
+    border-color: #65ff9b;
+
+    color: #031008;
+
+    box-shadow:
+        0 0 18px rgba(0, 255, 102, 0.55);
+}
+
+
+/* =========================================================
+   HOLD-TO-RUN ACTIVE
+========================================================= */
+
+.hold-button.active,
+.motion-button.active {
+
+    background: #ff3030;
+
+    border-color: #ff6666;
+
+    color: #180000;
+
+    box-shadow:
+        0 0 20px rgba(255, 48, 48, 0.65);
+
+    transform: scale(0.98);
+}
+
+
+/* =========================================================
+   TOGGLE ACTIVE
+========================================================= */
+
+.toggle-button.active,
+.direction-button.active {
+
+    background: #ff3030;
+
+    border-color: #ff6666;
+
+    color: #180000;
+
+    box-shadow:
+        0 0 20px rgba(255, 48, 48, 0.65);
+}
+
+
+/* =========================================================
+   SERVO STATE
+========================================================= */
+
+.servo-state {
+
+    color: #8eaeba;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   STEPPER CARDS
+========================================================= */
+
+.stepper-card {
+    gap: 5px;
+}
+
+
+/* =========================================================
+   STEPPER CONTROLS
+========================================================= */
+
+.stepper-controls {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 3px;
+}
+
+.direction-button,
+.motion-button {
+    min-height: 42px;
+}
+
+
+/* =========================================================
+   JOG FOOTER
+========================================================= */
+
+.jog-footer {
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 10px;
+
+    color: #6f8995;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   BACK TO MAIN BUTTON
+========================================================= */
+
+.back-main-btn {
+
+    padding: 9px 15px;
+
+    background: #111d25;
+
+    border: 1px solid #31596a;
+
+    border-radius: 6px;
+
+    color: #a9c4cf;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+.back-main-btn:hover {
+
+    border-color: #00d9ff;
+
+    color: #00d9ff;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN — LANDSCAPE MOBILE
+========================================================= */
+
+@media (max-width: 1000px) and (orientation: landscape) {
+
+    html,
+    body {
+
+        width: 100%;
+
+        height: 100%;
+
+        overflow: hidden;
+    }
+
+
+    /* =========================
+       HOME DASHBOARD
+    ========================= */
+
+    #mainDashboard {
+
+        width: 100vw;
+
+        height: 100vh;
+
+        min-height: 100vh;
+
+        padding: 10px 14px;
+
+        border-width: 6px;
+
+        overflow: hidden;
+    }
+
+    #mainDashboard::before {
+        inset: 5px;
+    }
+
+
+    .top-header {
+
+        height: 54px;
+
+        gap: 8px;
+    }
+
+    .title-panel {
+
+        min-width: 0;
+
+        height: 54px;
+
+        padding: 7px 12px;
+
+        gap: 9px;
+
+        border-width: 1px;
+    }
+
+    .title-content {
+
+        min-width: 0;
+    }
+
+    .title-content h1 {
+
+        font-size: clamp(11px, 2.2vw, 18px);
+
+        letter-spacing: 1px;
+
+        white-space: nowrap;
+    }
+
+    .subtitle {
+
+        margin-top: 4px;
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+
+        white-space: nowrap;
+    }
+
+    .subtitle span {
+        margin: 0 3px;
+    }
+
+    .gear-small {
+        font-size: 20px;
+    }
+
+    .system-status {
+
+        min-width: 125px;
+
+        height: 54px;
+
+        padding: 7px 9px;
+
+        border-width: 1px;
+    }
+
+    .status-title {
+
+        font-size: 8px;
+    }
+
+    .status-light {
+
+        width: 6px;
+
+        height: 6px;
+
+        margin-right: 4px;
+    }
+
+    .date {
+
+        margin-top: 3px;
+
+        font-size: 6px;
+    }
+
+    .time {
+
+        margin-top: 2px;
+
+        font-size: 12px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* =========================
+       FIVE HOME CARDS
+    ========================= */
+
+    .mode-container {
+
+        width: 100%;
+
+        height: calc(100vh - 115px);
+
+        margin-top: 10px;
+
+        display: grid;
+
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+
+        gap: 7px;
+
+        overflow: hidden;
+    }
+
+    .mode-card {
+
+        width: 100%;
+
+        min-width: 0;
+
+        min-height: 0;
+
+        height: 100%;
+
+        padding: 8px 5px;
+
+        border-width: 1px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        overflow: hidden;
+    }
+
+    .mode-card:hover {
+        transform: none;
+    }
+
+    .card-number {
+
+        top: 6px;
+
+        right: 7px;
+
+        font-size: 7px;
+    }
+
+    .gear-icon {
+
+        font-size: clamp(30px, 6vw, 52px);
+
+        margin: 4px auto 7px;
+    }
+
+    .gear-icon span {
+
+        font-size: clamp(9px, 1.7vw, 15px);
+    }
+
+    .mode-card h2 {
+
+        font-size: clamp(7px, 1.35vw, 12px);
+
+        letter-spacing: 0.5px;
+
+        text-align: center;
+
+        white-space: nowrap;
+    }
+
+    .card-line {
+
+        width: 75%;
+
+        margin: 6px 0;
+    }
+
+    .mode-card p {
+
+        font-size: clamp(5px, 1vw, 8px);
+
+        line-height: 1.3;
+
+        text-align: center;
+
+        white-space: nowrap;
+    }
+
+
+    /* =========================
+       HOME FOOTER
+    ========================= */
+
+    .bottom-footer {
+
+        left: 14px;
+
+        right: 14px;
+
+        bottom: 8px;
+
+        height: 34px;
+
+        gap: 7px;
+    }
+
+    .footer-box,
+    .controller-box {
+
+        padding: 5px 8px;
+
+        font-size: 6px;
+
+        line-height: 1.2;
+
+        white-space: nowrap;
+    }
+
+    .footer-box {
+        gap: 2px;
+    }
+
+    .controller-box {
+        letter-spacing: 1px;
+    }
+
+
+    /* =========================
+       JOG PAGE
+    ========================= */
+
+    .jog-page {
+
+        width: 100vw;
+
+        height: 100vh;
+
+        min-height: 100vh;
+
+        padding: 10px 14px;
+
+        overflow: hidden;
+
+        box-sizing: border-box;
+    }
+
+    .jog-header {
+
+        height: 58px;
+
+        padding: 0 14px;
+
+        border-radius: 8px;
+    }
+
+    .jog-kicker {
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+    .jog-header h1 {
+
+        font-size: 19px;
+
+        margin: 1px 0;
+
+        letter-spacing: 1.5px;
+    }
+
+    .jog-header p {
+        font-size: 9px;
+    }
+
+    .jog-status {
+
+        font-size: 9px;
+    }
+
+    .status-dot {
+
+        width: 7px;
+
+        height: 7px;
+    }
+
+    .jog-controls {
+
+        height: calc(100vh - 125px);
+
+        grid-template-columns:
+            1.15fr
+            0.85fr
+            1.15fr;
+
+        gap: 8px;
+
+        margin-top: 8px;
+    }
+
+    .actuator-group {
+
+        padding: 7px;
+
+        gap: 5px;
+
+        border-radius: 7px;
+    }
+
+    .group-title {
+
+        height: 22px;
+
+        padding-bottom: 4px;
+
+        gap: 6px;
+
+        font-size: 8px;
+
+        letter-spacing: 1.3px;
+    }
+
+    .group-title span {
+        font-size: 9px;
+    }
+
+    .actuator-card {
+
+        padding: 5px 7px;
+
+        gap: 3px;
+
+        border-radius: 6px;
+    }
+
+    .actuator-number {
+
+        font-size: 7px;
+
+        letter-spacing: 1px;
+    }
+
+    .actuator-name {
+
+        font-size: 9px;
+
+        letter-spacing: 0.6px;
+    }
+
+    .servo-state {
+        font-size: 7px;
+    }
+
+    .jog-action {
+
+        min-height: 27px;
+
+        border-width: 1px;
+
+        border-radius: 4px;
+
+        font-size: 7px;
+
+        letter-spacing: 0.7px;
+    }
+
+    .stepper-card {
+        gap: 3px;
+    }
+
+    .stepper-controls {
+
+        gap: 4px;
+
+        margin-top: 1px;
+    }
+
+    .direction-button,
+    .motion-button {
+        min-height: 29px;
+    }
+
+    .jog-footer {
+
+        height: 35px;
+
+        margin-top: 5px;
+
+        font-size: 7px;
+
+        letter-spacing: 1px;
+    }
+
+    .back-main-btn {
+
+        padding: 6px 10px;
+
+        border-radius: 4px;
+
+        font-size: 7px;
+
+        letter-spacing: 0.7px;
+    }
+}
+
+/* =========================================================
+   MDI CONTROL PAGE
+========================================================= */
+
+.mdi-controls {
+
+    height: calc(100vh - 165px);
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr
+        0.85fr
+        1.15fr;
+
+    gap: 16px;
+
+    margin-top: 14px;
+
+    align-items: stretch;
+
+}
+
+
+/* =========================================================
+   MDI GROUP
+========================================================= */
+
+.mdi-group {
+
+    min-width: 0;
+
+    min-height: 0;
+
+    padding: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111e27,
+            #0e1921
+        );
+
+    border: 1px solid #254858;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.025),
+        0 8px 20px rgba(0,0,0,0.25);
+
+}
+
+
+/* =========================================================
+   MDI CARDS
+========================================================= */
+
+.mdi-card {
+
+    flex: 1;
+
+    min-height: 0;
+
+    padding: 11px 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1a2b35,
+            #14232c
+        );
+
+    border: 1px solid #2d4c5b;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 6px;
+
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease,
+        transform 0.15s ease;
+
+}
+
+
+.mdi-card:hover {
+
+    border-color: #397b94;
+
+    background: #1b303b;
+
+}
+
+
+/* =========================================================
+   MDI NUMBER
+========================================================= */
+
+.mdi-number {
+
+    color: #ffb547;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   MDI COMMAND NAME
+========================================================= */
+
+.mdi-name {
+
+    color: #eef7fa;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    text-align: center;
+
+    line-height: 1.3;
+
+}
+
+
+/* =========================================================
+   MDI BUTTON
+========================================================= */
+
+.mdi-action {
+
+    width: 100%;
+
+    min-height: 38px;
+
+    margin-top: 3px;
+
+    background: #12242d;
+
+    border: 1px solid #376477;
+
+    border-radius: 5px;
+
+    color: #8fd8e8;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease,
+        transform 0.15s ease;
+
+}
+
+
+.mdi-action:hover {
+
+    background: #19333f;
+
+    border-color: #00d9ff;
+
+    color: #00d9ff;
+
+}
+
+
+/* =========================================================
+   MDI ACTIVE / EXECUTING
+========================================================= */
+
+.mdi-action.active {
+
+    background: #ff3030;
+
+    border-color: #ff6666;
+
+    color: #180000;
+
+    box-shadow:
+        0 0 20px rgba(255, 48, 48, 0.65);
+
+    transform: scale(0.98);
+
+}
+
+
+/* =========================================================
+   MDI RESPONSIVE — LANDSCAPE MOBILE
+========================================================= */
+
+@media (max-width: 1000px) and (orientation: landscape) {
+
+
+    .mdi-controls {
+
+        height: calc(100vh - 125px);
+
+        grid-template-columns:
+            1.15fr
+            0.85fr
+            1.15fr;
+
+        gap: 8px;
+
+        margin-top: 8px;
+
+    }
+
+
+    .mdi-group {
+
+        padding: 7px;
+
+        gap: 5px;
+
+        border-radius: 7px;
+
+    }
+
+
+    .mdi-card {
+
+        padding: 5px 7px;
+
+        gap: 3px;
+
+        border-radius: 6px;
+
+    }
+
+
+    .mdi-number {
+
+        font-size: 7px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .mdi-name {
+
+        font-size: 9px;
+
+        letter-spacing: 0.4px;
+
+        line-height: 1.2;
+
+    }
+
+
+    .mdi-action {
+
+        min-height: 27px;
+
+        border-width: 1px;
+
+        border-radius: 4px;
+
+        font-size: 7px;
+
+        letter-spacing: 0.8px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE — LANDSCAPE
+========================================================= */
+
+@media (max-width: 700px) and (orientation: landscape) {
+
+    #mainDashboard {
+
+        padding: 5px 8px;
+
+        border-width: 4px;
+    }
+
+    #mainDashboard::before {
+        inset: 3px;
+    }
+
+    .top-header {
+
+        height: 40px;
+
+        gap: 5px;
+    }
+
+    .title-panel {
+
+        height: 40px;
+
+        padding: 4px 7px;
+
+        gap: 5px;
+    }
+
+    .title-content h1 {
+
+        font-size: clamp(8px, 2vw, 13px);
+
+        letter-spacing: 0.6px;
+    }
+
+    .subtitle {
+
+        margin-top: 2px;
+
+        font-size: 5px;
+
+        letter-spacing: 1.2px;
+    }
+
+    .gear-small {
+        font-size: 13px;
+    }
+
+    .system-status {
+
+        min-width: 90px;
+
+        height: 40px;
+
+        padding: 4px 5px;
+    }
+
+    .status-title {
+        font-size: 6px;
+    }
+
+    .status-light {
+
+        width: 4px;
+
+        height: 4px;
+
+        margin-right: 3px;
+    }
+
+    .date {
+        font-size: 4px;
+    }
+
+    .time {
+
+        font-size: 8px;
+
+        letter-spacing: 1px;
+    }
+
+    .mode-container {
+
+        height: calc(100vh - 83px);
+
+        margin-top: 5px;
+
+        gap: 4px;
+    }
+
+    .mode-card {
+
+        padding: 4px 2px;
+    }
+
+    .card-number {
+
+        top: 4px;
+
+        right: 5px;
+
+        font-size: 5px;
+    }
+
+    .gear-icon {
+
+        font-size: clamp(23px, 6vw, 38px);
+
+        margin: 2px auto 4px;
+    }
+
+    .gear-icon span {
+        font-size: 7px;
+    }
+
+    .mode-card h2 {
+
+        font-size: clamp(5px, 1.3vw, 8px);
+
+        letter-spacing: 0.3px;
+    }
+
+    .card-line {
+
+        margin: 3px 0;
+    }
+
+    .mode-card p {
+
+        font-size: clamp(4px, 0.9vw, 6px);
+
+        line-height: 1.15;
+    }
+
+    .bottom-footer {
+
+        left: 8px;
+
+        right: 8px;
+
+        bottom: 3px;
+
+        height: 24px;
+    }
+
+    .footer-box,
+    .controller-box {
+
+        padding: 3px 5px;
+
+        font-size: 4px;
+    }
+
+
+    /* JOG */
+
+    .jog-page {
+        padding: 6px 9px;
+    }
+
+    .jog-header {
+
+        height: 48px;
+
+        padding: 0 10px;
+    }
+
+    .jog-kicker {
+
+        font-size: 6px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .jog-header h1 {
+        font-size: 15px;
+    }
+
+    .jog-header p {
+        font-size: 7px;
+    }
+
+    .jog-status {
+
+        font-size: 7px;
+
+        gap: 5px;
+    }
+
+    .status-dot {
+
+        width: 6px;
+
+        height: 6px;
+    }
+
+    .jog-controls {
+
+        height: calc(100vh - 101px);
+
+        gap: 5px;
+
+        margin-top: 5px;
+    }
+
+    .actuator-group {
+
+        padding: 5px;
+
+        gap: 3px;
+    }
+
+    .group-title {
+
+        height: 18px;
+
+        padding-bottom: 2px;
+
+        font-size: 6px;
+    }
+
+    .group-title span {
+        font-size: 7px;
+    }
+
+    .actuator-card {
+
+        padding: 3px 5px;
+
+        gap: 2px;
+    }
+
+    .actuator-number {
+        font-size: 6px;
+    }
+
+    .actuator-name {
+        font-size: 7px;
+    }
+
+    .servo-state {
+        font-size: 6px;
+    }
+
+    .jog-action {
+
+        min-height: 23px;
+
+        font-size: 6px;
+    }
+
+    .direction-button,
+    .motion-button {
+        min-height: 24px;
+    }
+
+    .stepper-controls {
+        gap: 3px;
+    }
+
+    .jog-footer {
+
+        height: 27px;
+
+        margin-top: 3px;
+
+        font-size: 6px;
+    }
+
+    .back-main-btn {
+
+        padding: 4px 7px;
+
+        font-size: 6px;
+    }
+}
+
+/* =========================================================
+   MDI BUTTONS
+   SAME COLORS AS JOG
+   GREEN = READY
+   RED   = ACTIVE / RUNNING
+   ========================================================= */
+
+.mdi-action {
+    width: 100%;
+    min-height: 42px;
+
+    border: 2px solid #00ff66;
+    border-radius: 6px;
+
+    background: #00d957;
+    color: #06130b;
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.1s ease,
+        border-color 0.1s ease,
+        color 0.1s ease,
+        box-shadow 0.1s ease,
+        transform 0.08s ease;
+}
+
+
+/* GREEN HOVER — SAME AS JOG */
+
+.mdi-action:hover {
+    background: #00ff66;
+    border-color: #65ff9b;
+    color: #031008;
+
+    box-shadow:
+        0 0 18px rgba(0, 255, 102, 0.55);
+}
+
+
+/* RED ACTIVE — SAME AS JOG */
+
+.mdi-action.active {
+    background: #ff3030;
+    border-color: #ff6666;
+    color: #180000;
+
+    box-shadow:
+        0 0 20px rgba(255, 48, 48, 0.65);
+
+    transform: scale(0.98);
+}
+
+
+/* DISABLED WHILE ANOTHER MDI COMMAND IS RUNNING */
+
+.mdi-action:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+
+/* ACTIVE BUTTON REMAINS FULLY VISIBLE */
+
+.mdi-action.active:disabled {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   NO PORTRAIT WARNING
+   Website stays normal if browser is portrait.
+   No rotate message is displayed.
+========================================================= */
+
+@media (max-width: 1000px) and (orientation: portrait) {
+
+    html,
+    body {
+
+        width: 100%;
+
+        height: 100%;
+
+        overflow: hidden;
+    }
+
+    #mainDashboard,
+    .jog-page {
+
+        width: 100vw;
+
+        min-height: 100vh;
+    }
+}
