@@ -2055,3 +2055,194 @@ button {
         min-height: 100vh;
     }
 }
+/* =========================================================
+   MDI MOBILE FIX
+   UI ONLY — DOES NOT CHANGE ANY LOGIC
+========================================================= */
+
+@media (max-width: 1000px) and (orientation: landscape) {
+
+    #mdiPage {
+        width: 100vw;
+        height: 100dvh;
+        min-height: 100vh;
+        padding: 6px 9px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    #mdiPage .jog-header {
+        height: 48px;
+        min-height: 48px;
+        box-sizing: border-box;
+    }
+
+    #mdiPage .mdi-controls {
+        height: calc(100dvh - 101px);
+        min-height: 0;
+        margin-top: 5px;
+
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr 1.15fr;
+        gap: 5px;
+
+        overflow: hidden;
+    }
+
+    #mdiPage .mdi-group {
+        min-width: 0;
+        min-height: 0;
+        padding: 5px;
+        gap: 3px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    #mdiPage .mdi-card {
+        min-width: 0;
+        min-height: 0;
+        padding: 3px 5px;
+        gap: 2px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    #mdiPage .mdi-number {
+        font-size: 6px;
+        letter-spacing: 0.8px;
+    }
+
+    #mdiPage .mdi-name {
+        font-size: 7px;
+        line-height: 1.15;
+        letter-spacing: 0.3px;
+        text-align: center;
+    }
+
+    #mdiPage .mdi-action {
+        width: 100%;
+        min-height: 27px;
+        height: 27px;
+        padding: 0 4px;
+
+        border-width: 1px;
+        border-radius: 4px;
+
+        font-size: 6px;
+        line-height: 1;
+        letter-spacing: 0.6px;
+
+        box-sizing: border-box;
+        touch-action: manipulation;
+
+        -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    #mdiPage .mdi-action.active {
+        transform: scale(0.98);
+    }
+
+    #mdiPage .jog-footer {
+        height: 27px;
+        min-height: 27px;
+        margin-top: 3px;
+        box-sizing: border-box;
+
+        font-size: 6px;
+        letter-spacing: 0.7px;
+    }
+
+    #mdiPage .back-main-btn {
+        padding: 4px 7px;
+        font-size: 6px;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL LANDSCAPE PHONES
+========================================================= */
+
+@media (max-width: 700px) and (orientation: landscape) {
+
+    #mdiPage {
+        padding: 5px 7px;
+    }
+
+    #mdiPage .jog-header {
+        height: 44px;
+        min-height: 44px;
+    }
+
+    #mdiPage .jog-kicker {
+        font-size: 5px;
+        letter-spacing: 1.2px;
+    }
+
+    #mdiPage .jog-header h1 {
+        font-size: 13px;
+        letter-spacing: 1px;
+        margin: 1px 0;
+    }
+
+    #mdiPage .jog-header p {
+        font-size: 6px;
+    }
+
+    #mdiPage .jog-status {
+        font-size: 6px;
+        gap: 4px;
+    }
+
+    #mdiPage .status-dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    #mdiPage .mdi-controls {
+        height: calc(100dvh - 92px);
+        gap: 4px;
+        margin-top: 4px;
+    }
+
+    #mdiPage .mdi-group {
+        padding: 4px;
+        gap: 2px;
+    }
+
+    #mdiPage .mdi-card {
+        padding: 2px 4px;
+        gap: 2px;
+    }
+
+    #mdiPage .mdi-number {
+        font-size: 5px;
+    }
+
+    #mdiPage .mdi-name {
+        font-size: 6px;
+        line-height: 1.1;
+    }
+
+    #mdiPage .mdi-action {
+        min-height: 24px;
+        height: 24px;
+        font-size: 5.5px;
+        letter-spacing: 0.4px;
+    }
+
+    #mdiPage .jog-footer {
+        height: 24px;
+        min-height: 24px;
+        margin-top: 2px;
+    }
+
+    #mdiPage .back-main-btn {
+        padding: 3px 6px;
+        font-size: 5px;
+    }
+}

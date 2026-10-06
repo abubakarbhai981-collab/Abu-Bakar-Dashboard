@@ -702,8 +702,8 @@ function initializeJogControls() {
 ========================================================= */
 
 let mdiRunning = false;
-
 let mdiActiveButton = null;
+let mdiExecutionStarted = false;
 
 
 /* =========================================================
@@ -843,20 +843,18 @@ async function sendMDICommand(
            when command begins.
         */
 
-        if (
-            result.trim() === "STARTED"
-        ) {
+       if (result.trim() === "STARTED") {
 
-            console.log(
-                "MDI STARTED:",
-                command
-            );
+        console.log(
+        "MDI STARTED:",
+        command
+        );
 
+         mdiExecutionStarted = false;
 
-            checkMDIStatus();
+         checkMDIStatus();
 
-
-        } else {
+         } else {
 
             console.error(
                 "MDI WAS NOT STARTED:",
@@ -930,16 +928,34 @@ async function checkMDIStatus() {
            COMMAND FINISHED
         */
 
-        if (
-            status === "DONE" ||
-            status === "IDLE"
-        ) {
+        if (status === "RUNNING") {
 
-            finishMDI();
+    mdiExecutionStarted = true;
 
-            return;
+    console.log(
+        "MDI EXECUTION IS RUNNING"
+    );
 
-        }
+    setTimeout(
+        checkMDIStatus,
+        200
+    );
+
+    return;
+}
+
+if (
+    mdiExecutionStarted &&
+    (
+        status === "DONE" ||
+        status === "IDLE"
+    )
+) {
+
+    finishMDI();
+
+    return;
+}
 
 
         /*
@@ -1045,9 +1061,9 @@ function finishMDI() {
         );
 
 
-    mdiActiveButton = null;
-
-    mdiRunning = false;
+   mdiActiveButton = null;
+   mdiRunning = false;
+   mdiExecutionStarted = false; 
 
 
     console.log(
@@ -1063,18 +1079,39 @@ function finishMDI() {
 
 function initializeMDIControls() {
 
-    /*
-       Your HTML already uses:
+    document.querySelectorAll(".mdi-action").forEach(button => {
 
-       onclick="executeMDICommand('LOAD_BOTTLE', this)"
+        button.addEventListener("pointerdown", function(event) {
 
-       Therefore we do NOT add another click
-       handler here.
-    */
+            event.preventDefault();
 
-    console.log(
-        "MDI controls initialized."
-    );
+            if (button.disabled) {
+                return;
+            }
+
+            const onclickCode = button.getAttribute("onclick");
+
+            if (!onclickCode) {
+                return;
+            }
+
+            const match = onclickCode.match(
+                /executeMDICommand\('([^']+)'/
+            );
+
+            if (!match) {
+                return;
+            }
+
+            const command = match[1];
+
+            executeMDICommand(command, button);
+
+        }, { passive: false });
+
+    });
+
+    console.log("MDI controls initialized.");
 
 }
 
@@ -1096,10 +1133,10 @@ function executeMDICommand(
 }
 
 
-/* =========================================================
-   INITIALIZATION
-========================================================= */
+
+// =========================================================
+// INITIALIZATION
+// =========================================================
 
 initializeJogControls();
-
 initializeMDIControls();

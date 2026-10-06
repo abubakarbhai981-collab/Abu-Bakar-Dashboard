@@ -295,7 +295,7 @@
                             onmouseup="stopActuator('hydraulicPump', this)"
                             onmouseleave="stopActuator('hydraulicPump', this)"
                             ontouchstart="startActuator('hydraulicPump', this)"
-                            ontouchend="stopActuator('hydraulicPump', this)"
+                            ontouchstart="stopActuator('hydraulicPump', this)"
                         >
                             PRESS &amp; HOLD
                         </button>
@@ -320,7 +320,7 @@
                             onmouseup="stopActuator('pneumaticPump1', this)"
                             onmouseleave="stopActuator('pneumaticPump1', this)"
                             ontouchstart="startActuator('pneumaticPump1', this)"
-                            ontouchend="stopActuator('pneumaticPump1', this)"
+                            ontouchstart="stopActuator('pneumaticPump1', this)"
                         >
                             PRESS &amp; HOLD
                         </button>
@@ -345,7 +345,7 @@
                             onmouseup="stopActuator('ttMotor', this)"
                             onmouseleave="stopActuator('ttMotor', this)"
                             ontouchstart="startActuator('ttMotor', this)"
-                            ontouchend="stopActuator('ttMotor', this)"
+                            ontouchstart="stopActuator('ttMotor', this)"
                         >
                             PRESS &amp; HOLD
                         </button>
@@ -370,7 +370,7 @@
                             onmouseup="stopActuator('pneumaticPump2', this)"
                             onmouseleave="stopActuator('pneumaticPump2', this)"
                             ontouchstart="startActuator('pneumaticPump2', this)"
-                            ontouchend="stopActuator('pneumaticPump2', this)"
+                            ontouchstart="stopActuator('pneumaticPump2', this)"
                         >
                             PRESS &amp; HOLD
                         </button>
@@ -479,7 +479,7 @@
                                 onmouseup="stopStepper(1, this)"
                                 onmouseleave="stopStepper(1, this)"
                                 ontouchstart="startStepper(1, this)"
-                                ontouchend="stopStepper(1, this)"
+                                ontouchstart="stopStepper(1, this)"
                             >
                                 MOTION
                             </button>
@@ -516,7 +516,7 @@
                                 onmouseup="stopStepper(2, this)"
                                 onmouseleave="stopStepper(2, this)"
                                 ontouchstart="startStepper(2, this)"
-                                ontouchend="stopStepper(2, this)"
+                                ontouchstart="stopStepper(2, this)"
                             >
                                 MOTION
                             </button>
@@ -553,7 +553,7 @@
                                 onmouseup="stopStepper(3, this)"
                                 onmouseleave="stopStepper(3, this)"
                                 ontouchstart="startStepper(3, this)"
-                                ontouchend="stopStepper(3, this)"
+                                ontouchstart="stopStepper(3, this)"
                             >
                                 MOTION
                             </button>
@@ -655,10 +655,11 @@
                 </div>
 
                 <button
-                    class="mdi-action"
-                    onclick="executeMDICommand('LOAD_BOTTLE', this)"
-                >
-                    EXECUTE
+                 class="mdi-action"
+                 onclick="executeMDICommand('LOAD_BOTTLE', this)"
+                 ontouchstart="handleMDITouch(event, 'LOAD_BOTTLE', this)"
+>
+    EXECUTE
                 </button>
 
             </div>
@@ -679,6 +680,7 @@
                 <button
                     class="mdi-action"
                     onclick="executeMDICommand('FILL_BOTTLE', this)"
+                    ontouchstart="handleMDITouch(event, 'FILL_BOTTLE', this)"
                 >
                     EXECUTE
                 </button>
@@ -701,6 +703,7 @@
                 <button
                     class="mdi-action"
                     onclick="executeMDICommand('LOAD_CAP', this)"
+                    ontouchstart="handleMDITouch(event, 'LOAD_CAP', this)"
                 >
                     EXECUTE
                 </button>
@@ -723,6 +726,7 @@
                 <button
                     class="mdi-action"
                     onclick="executeMDICommand('TIGHT_CAP', this)"
+                    ontouchstart="handleMDITouch(event, 'TIGHT_CAP', this)"
                 >
                     EXECUTE
                 </button>
@@ -762,6 +766,7 @@
                 <button
                     class="mdi-action"
                     onclick="executeMDICommand('HOME_PLATFORM_1', this)"
+                    ontouchstart="handleMDITouch(event, 'HOME_PLATFORM', this)"
                 >
                     EXECUTE
                 </button>
@@ -784,6 +789,7 @@
                 <button
                     class="mdi-action"
                     onclick="executeMDICommand('HOME_PLATFORM_2', this)"
+                    ontouchstart="handleMDITouch(event, 'HOME_PLATFORM_2', this)"
                 >
                     EXECUTE
                 </button>
@@ -806,6 +812,7 @@
                 <button
                     class="mdi-action"
                     onclick="executeMDICommand('HOME_TIGHTENING', this)"
+                    ontouchstart="handleMDITouch(event, 'HOME_TIGHTENING', this)"
                 >
                     EXECUTE
                 </button>
@@ -845,6 +852,7 @@
                 <button
                     class="mdi-action"
                     onclick="executeMDICommand('MOVE_FILLING_SECTION', this)"
+                    ontouchstart="handleMDITouch(event, 'MOVE_FILLING_SECTION', this)"
                 >
                     EXECUTE
                 </button>
@@ -867,6 +875,7 @@
                 <button
                     class="mdi-action"
                     onclick="executeMDICommand('MOVE_TIGHTENING_SECTION', this)"
+                    ontouchstart="handleMDITouch(event, 'MOVE_TIGHTENING_SECTION', this)"
                 >
                     EXECUTE
                 </button>
@@ -889,6 +898,7 @@
                 <button
                     class="mdi-action"
                     onclick="executeMDICommand('MOVE_LOADING_SECTION', this)"
+                    ontouchstart="handleMDITouch(event, 'MOVE_LOADING_SECTION', this)"
                 >
                     EXECUTE
                 </button>
@@ -911,6 +921,7 @@
                 <button
                     class="mdi-action"
                     onclick="executeMDICommand('MOVE_STORAGE_PLATFORM', this)"
+                    ontouchstart="handleMDITouch(event, 'MOVE_STORAGE_PLATFORM', this)"
                 >
                     EXECUTE
                 </button>
@@ -940,112 +951,7 @@
     </div>
 
 </section>
-<!-- =========================================================
-     MDI PAGE
-========================================================= -->
 
-<div id="mdiPage" style="display: none;">
-
-    <div class="mdi-header">
-        <button class="back-button" onclick="backToMain()">
-            ← BACK
-        </button>
-
-        <h1>MDI CONTROL</h1>
-    </div>
-
-    <div class="mdi-layout">
-
-        <!-- LEFT COLUMN -->
-        <div class="mdi-column">
-
-            <button
-                class="mdi-action"
-                onclick="executeMDICommand('LOAD_BOTTLE', this)">
-                LOAD THE BOTTLE
-            </button>
-
-            <button
-                class="mdi-action"
-                onclick="executeMDICommand('FILL_BOTTLE', this)">
-                FILL THE BOTTLE
-            </button>
-
-            <button
-                class="mdi-action"
-                onclick="executeMDICommand('LOAD_CAP', this)">
-                LOAD THE CAP
-            </button>
-
-            <button
-                class="mdi-action"
-                onclick="executeMDICommand('TIGHT_CAP', this)">
-                TIGHT THE CAP
-            </button>
-
-        </div>
-
-
-        <!-- CENTER COLUMN -->
-        <div class="mdi-column mdi-homing-column">
-
-            <div class="mdi-section-title">
-                HOMINGS
-            </div>
-
-            <button
-                class="mdi-action"
-                onclick="executeMDICommand('HOME_PLATFORM_1', this)">
-                HOME THE PLATFORM 1
-            </button>
-
-            <button
-                class="mdi-action"
-                onclick="executeMDICommand('HOME_PLATFORM_2', this)">
-                HOME THE PLATFORM 2
-            </button>
-
-            <button
-                class="mdi-action"
-                onclick="executeMDICommand('HOME_TIGHTENING', this)">
-                HOME THE TIGHTENING MECHANISM
-            </button>
-
-        </div>
-
-
-        <!-- RIGHT COLUMN -->
-        <div class="mdi-column">
-
-            <button
-                class="mdi-action"
-                onclick="executeMDICommand('MOVE_FILLING_SECTION', this)">
-                MOVE TO FILLING SECTION
-            </button>
-
-            <button
-                class="mdi-action"
-                onclick="executeMDICommand('MOVE_TIGHTENING_SECTION', this)">
-                MOVE TO TIGHTENING SECTION
-            </button>
-
-            <button
-                class="mdi-action"
-                onclick="executeMDICommand('MOVE_LOADING_SECTION', this)">
-                MOVE TO LOADING SECTION
-            </button>
-
-            <button
-                class="mdi-action"
-                onclick="executeMDICommand('MOVE_STORAGE_PLATFORM', this)">
-                MOVE THE STORAGE PLATFORM
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
     <script src="script.js"></script>
 
 </body>
