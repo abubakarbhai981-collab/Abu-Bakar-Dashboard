@@ -2246,3 +2246,1973 @@ button {
         font-size: 5px;
     }
 }
+/* =========================================================
+   AUTOMATIC CONTROL PAGE
+   FINAL COMPLETE CSS
+========================================================= */
+
+
+/* =========================================================
+   AUTOMATIC PAGE
+========================================================= */
+
+#automaticPage {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   AUTOMATIC COMMAND SECTION
+========================================================= */
+
+.automatic-command-section {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 18px 20px;
+
+    box-sizing: border-box;
+
+    background: #101a20;
+
+    border: 1px solid #29414c;
+
+    border-radius: 6px;
+
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,0.45);
+
+}
+
+
+/* =========================================================
+   COMMAND BUTTONS
+========================================================= */
+
+.automatic-command-buttons {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-top: 16px;
+
+}
+
+
+/* =========================================================
+   COMMAND BUTTON
+========================================================= */
+
+.automatic-command-btn {
+
+    width: 100%;
+
+    min-height: 64px;
+
+    border: 2px solid #00ff66;
+
+    border-radius: 6px;
+
+    background: #00d957;
+
+    color: #06130b;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.1s ease,
+        border-color 0.1s ease,
+        color 0.1s ease,
+        box-shadow 0.1s ease,
+        transform 0.08s ease;
+
+    user-select: none;
+
+}
+
+
+/* COMMAND HOVER */
+
+.automatic-command-btn:hover {
+
+    background: #00ff66;
+
+    border-color: #65ff9b;
+
+    color: #031008;
+
+    box-shadow:
+        0 0 18px rgba(0,255,102,0.55);
+
+}
+
+
+/* COMMAND PRESSED */
+
+.automatic-command-btn:active {
+
+    transform: scale(0.98);
+
+}
+
+
+/* COMMAND ACTIVE / RED */
+
+.automatic-command-btn.active {
+
+    background: #ff3030;
+
+    border-color: #ff6666;
+
+    color: #180000;
+
+    box-shadow:
+        0 0 20px rgba(255,48,48,0.65);
+
+}
+
+
+/* =========================================================
+   PROCESS MONITORING SECTION
+========================================================= */
+
+.automatic-monitor-section {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 18px 20px;
+
+    box-sizing: border-box;
+
+    background: #101a20;
+
+    border: 1px solid #29414c;
+
+    border-radius: 6px;
+
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,0.45);
+
+}
+
+
+/* =========================================================
+   MONITOR GRID
+========================================================= */
+
+.automatic-monitor-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+    width: 100%;
+    margin-top: 18px;
+    align-items: stretch;
+}
+
+/* =========================================================
+   SELECTIONS GROUP
+========================================================= */
+
+.automatic-selections-group {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    padding: 18px;
+
+    box-sizing: border-box;
+
+    background: #101a20;
+
+    border: 1px solid #29414c;
+
+    border-radius: 6px;
+
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,0.45);
+
+}
+
+
+/* =========================================================
+   PROCESS MONITOR GROUP
+========================================================= */
+
+.automatic-process-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 18px;
+    box-sizing: border-box;
+    background: #101a20;
+    border: 1px solid #29414c;
+    border-radius: 6px;
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,0.45);
+}
+
+/* Align process monitors like the left-side monitors */
+.automatic-process-group .automatic-monitor-card:nth-child(2) {
+    justify-content: flex-start;
+}
+
+.automatic-process-group .automatic-monitor-card:nth-child(3) {
+    justify-content: flex-end;
+}
+
+.automatic-process-group .automatic-monitor-card:nth-child(4) {
+    justify-content: flex-start;
+}
+
+.automatic-process-group .automatic-monitor-card:nth-child(5) {
+    justify-content: flex-end;
+}
+
+
+/* =========================================================
+   GROUP TITLES
+========================================================= */
+
+.automatic-group-title {
+
+    grid-column: 1 / -1;
+
+    color: #00d9ff;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #29414c;
+
+}
+
+
+
+
+/* =========================================================
+   MONITOR CARD
+   CARD ITSELF IS SMALL — ONLY TEXT + LED
+========================================================= */
+
+.automatic-monitor-card {
+
+    width: 100%;
+
+    min-height: 82px;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   LEFT COLUMN
+   CONTENT AT OUTER LEFT
+========================================================= */
+
+.automatic-left-card {
+
+    justify-content: flex-start;
+
+}
+
+
+/* =========================================================
+   RIGHT COLUMN
+   CONTENT AT OUTER RIGHT
+========================================================= */
+
+.automatic-right-card {
+    justify-content: flex-start;
+    padding-left: 35px;
+    box-sizing: border-box;
+}
+
+
+.automatic-center-card {
+    justify-content: center;
+}
+
+/* =========================================================
+   MONITOR TEXT BOX
+   GREEN BACKGROUND + BLACK TEXT
+========================================================= */
+
+.automatic-monitor-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    min-width: 280px;
+
+    padding: 13px 22px;
+
+    box-sizing: border-box;
+
+    background: #00d957;
+
+    border: 2px solid #00ff66;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 0 14px rgba(0,255,102,0.25);
+
+}
+
+.automatic-selection-content {
+    align-items: center;
+}
+.automatic-selections-group .automatic-monitor-content {
+    width: 280px;
+    min-width: 280px;
+    min-height: 70px;
+}
+
+
+
+.automatic-selections-group .automatic-monitor-card {
+    justify-content: center;
+}
+
+.automatic-selection {
+    width: 100%;
+    min-height: 34px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 2px solid #00ff66;
+    border-radius: 4px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 900;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    
+}
+
+.automatic-selection:hover {
+    background: #00ff66;
+}
+
+.automatic-selection:focus {
+    background: #00ff66;
+    box-shadow: 0 0 12px rgba(0,255,102,0.45);
+}
+
+
+
+/* =========================================================
+   MONITOR TITLE
+========================================================= */
+
+.automatic-monitor-title {
+
+    color: #000000;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+/* =========================================================
+   MONITOR VALUE
+========================================================= */
+
+.automatic-monitor-value {
+
+    color: #000000;
+
+    font-size: 21px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   STATUS LED
+   OUTSIDE THE GREEN TEXT BOX
+========================================================= */
+
+.automatic-led {
+
+    width: 18px;
+
+    height: 18px;
+
+    min-width: 18px;
+
+    border-radius: 50%;
+
+    background: #00ff66;
+
+    border: 2px solid #65ff9b;
+
+    box-shadow:
+        0 0 15px rgba(0,255,102,0.8);
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================================================
+   RED STATUS LED
+========================================================= */
+
+.automatic-led.red {
+
+    background: #ff3030;
+
+    border-color: #ff6666;
+
+    box-shadow:
+        0 0 15px rgba(255,48,48,0.8);
+
+}
+
+
+/* =========================================================
+   BUZZER SECTION
+========================================================= */
+
+.automatic-buzzer-section {
+
+    width: 100%;
+
+    min-height: 55px;
+
+    margin-top: 25px;
+
+    padding: 10px 18px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    background: #101a20;
+
+    border: 1px solid #29414c;
+
+    border-radius: 6px;
+
+}
+
+
+/* =========================================================
+   BUZZER LABEL
+========================================================= */
+
+.automatic-buzzer-label {
+
+    color: #8eaeba;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+/* =========================================================
+   BUZZER LED
+========================================================= */
+
+.automatic-buzzer-led {
+
+    width: 12px;
+
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #00ff66;
+
+    border: 1px solid #65ff9b;
+
+    box-shadow:
+        0 0 12px rgba(0,255,102,0.75);
+
+}
+
+
+/* BUZZER RED */
+
+.automatic-buzzer-led.red {
+
+    background: #ff3030;
+
+    border-color: #ff6666;
+
+    box-shadow:
+        0 0 14px rgba(255,48,48,0.8);
+
+}
+
+
+/* =========================================================
+   BUZZER TEXT
+========================================================= */
+
+.automatic-buzzer-text {
+
+    color: #00ff66;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.automatic-buzzer-text.red {
+
+    color: #ff3030;
+
+}
+
+
+/* =========================================================
+   AUTOMATIC FOOTER
+========================================================= */
+
+#automaticPage .jog-footer {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   LARGE SCREENS
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    #automaticPage {
+
+        padding: 12px 20px;
+
+    }
+
+
+    .automatic-command-section {
+
+        margin-top: 14px;
+
+        padding: 16px 22px;
+
+    }
+
+
+    .automatic-command-buttons {
+
+        gap: 28px;
+
+        margin-top: 13px;
+
+    }
+
+
+    .automatic-command-btn {
+
+        min-height: 64px;
+
+        font-size: 16px;
+
+    }
+
+
+    .automatic-monitor-section {
+
+        margin-top: 15px;
+
+        padding: 16px 22px;
+
+    }
+
+
+    .automatic-monitor-grid {
+
+    column-gap: 25px;
+    row-gap: 28px;
+    margin-top: 14px;
+}
+
+    }
+
+
+    .automatic-monitor-card {
+
+        min-height: 70px;
+
+    }
+    
+
+
+    .automatic-monitor-content {
+
+        min-width: 280px;
+
+        padding: 13px 24px;
+
+    }
+
+    .automatic-selection {
+    min-height: 34px;
+    font-size: 17px;
+}
+
+
+    .automatic-monitor-title {
+
+        font-size: 14px;
+
+    }
+
+
+    .automatic-monitor-value {
+
+        font-size: 22px;
+
+    }
+
+
+    .automatic-led {
+
+        width: 19px;
+
+        height: 19px;
+
+        min-width: 19px;
+
+    }
+
+
+    .automatic-buzzer-section {
+
+        min-height: 45px;
+
+        margin-top: 14px;
+
+        padding: 7px 14px;
+
+    }
+
+
+    #automaticPage .jog-footer {
+
+        margin-top: 12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MEDIUM SCREENS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    #automaticPage {
+
+        padding: 8px 12px;
+
+    }
+
+
+    .automatic-command-section,
+    .automatic-monitor-section {
+
+        padding: 10px 12px;
+
+    }
+
+
+    .automatic-command-section {
+
+        margin-top: 8px;
+
+    }
+
+
+    .automatic-command-buttons {
+
+        gap: 10px;
+
+        margin-top: 8px;
+
+    }
+
+
+    .automatic-command-btn {
+
+        min-height: 48px;
+
+        font-size: 11px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .automatic-monitor-section {
+
+        margin-top: 10px;
+
+    }
+
+
+    .automatic-monitor-grid {
+
+        row-gap: 14px;
+
+        margin-top: 8px;
+
+    }
+
+
+    .automatic-monitor-card {
+
+        min-height: 60px;
+
+        gap: 9px;
+
+    }
+
+
+    .automatic-monitor-content {
+
+        min-width: 180px;
+
+        padding: 9px 14px;
+
+    }
+
+
+    .automatic-monitor-title {
+
+        font-size: 10px;
+
+        letter-spacing: 0.8px;
+
+    }
+
+
+    .automatic-monitor-value {
+
+        font-size: 15px;
+
+    }
+
+
+    .automatic-led {
+
+        width: 14px;
+
+        height: 14px;
+
+        min-width: 14px;
+
+        border-width: 1px;
+
+    }
+
+
+    .automatic-buzzer-section {
+
+        min-height: 38px;
+
+        margin-top: 8px;
+
+        padding: 5px 10px;
+
+    }
+
+
+    .automatic-buzzer-label {
+
+        font-size: 8px;
+
+    }
+
+
+    .automatic-buzzer-text {
+
+        font-size: 8px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL SCREENS
+========================================================= */
+
+@media (max-width: 600px) {
+
+    #automaticPage {
+
+        padding: 5px 7px;
+
+    }
+
+
+    .automatic-command-section,
+    .automatic-monitor-section {
+
+        padding: 7px;
+
+        margin-top: 6px;
+
+    }
+
+
+    .automatic-command-buttons {
+
+        gap: 6px;
+
+        margin-top: 6px;
+
+    }
+
+
+    .automatic-command-btn {
+
+        min-height: 40px;
+
+        font-size: 8px;
+
+        letter-spacing: 0.7px;
+
+    }
+
+
+    .automatic-monitor-grid {
+
+        row-gap: 8px;
+
+        margin-top: 6px;
+
+    }
+
+
+    .automatic-monitor-card {
+
+        min-height: 48px;
+
+        gap: 6px;
+
+    }
+
+
+    .automatic-monitor-content {
+
+        min-width: 110px;
+
+        padding: 7px 9px;
+
+    }
+
+
+    .automatic-monitor-title {
+
+        font-size: 7px;
+
+        letter-spacing: 0.5px;
+
+    }
+
+
+    .automatic-monitor-value {
+
+        font-size: 10px;
+
+        letter-spacing: 0.3px;
+
+    }
+
+
+    .automatic-led {
+
+        width: 9px;
+
+        height: 9px;
+
+        min-width: 9px;
+
+    }
+
+
+    .automatic-buzzer-section {
+
+        min-height: 30px;
+
+        margin-top: 6px;
+
+        padding: 4px;
+
+        gap: 6px;
+
+    }
+
+
+    .automatic-buzzer-label {
+
+        font-size: 6px;
+
+    }
+
+
+    .automatic-buzzer-led {
+
+        width: 7px;
+
+        height: 7px;
+
+    }
+
+
+    .automatic-buzzer-text {
+
+        font-size: 6px;
+
+    }
+
+
+    #automaticPage .jog-footer {
+
+        margin-top: 7px;
+
+    }
+    
+
+}
+
+/* =========================================================
+   SENSOR DIAGNOSTICS
+   FINAL COMPLETE CSS
+========================================================= */
+
+
+/* =========================================================
+   DIAGNOSTICS PAGE
+========================================================= */
+
+#diagnosticsPage {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   MAIN 3-COLUMN GRID
+========================================================= */
+
+.diagnostics-grid {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    column-gap: 45px;
+
+    margin-top: 20px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   EACH COLUMN
+========================================================= */
+
+.diagnostics-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+}
+
+
+/* =========================================================
+   SENSOR CARD
+========================================================= */
+
+.diagnostic-sensor-card {
+
+    width: 100%;
+
+    min-height: 125px;
+
+    padding: 18px 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    background: #1a3f56;
+
+    border: 1px solid #cecbde;
+
+    border-radius: 6px;
+
+
+    box-shadow:
+        inset 0 0 20px rgba(52, 13, 13, 0.45);
+    
+
+}
+
+
+/* =========================================================
+   SENSOR TITLE
+========================================================= */
+
+.diagnostic-sensor-title {
+
+    color: #8eaeba;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   SENSOR LED
+========================================================= */
+
+.diagnostic-sensor-led {
+
+    width: 22px;
+
+    height: 22px;
+
+    min-width: 22px;
+
+    border-radius: 50%;
+
+    background: #00ff66;
+
+    border: 2px solid #65ff9b;
+
+    box-shadow:
+        0 0 15px rgba(0,255,102,0.8);
+
+}
+
+
+/* =========================================================
+   RED SENSOR LED
+========================================================= */
+
+.diagnostic-sensor-card.red
+.diagnostic-sensor-led {
+
+    background: #ff3030;
+
+    border-color: #ff6666;
+
+    box-shadow:
+        0 0 18px rgba(255,48,48,0.8);
+
+}
+
+
+/* =========================================================
+   SENSOR STATUS
+========================================================= */
+
+.diagnostic-sensor-status {
+
+    color: #00ff66;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.2px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   RED SENSOR STATUS
+========================================================= */
+
+.diagnostic-sensor-card.red
+.diagnostic-sensor-status {
+
+    color: #ff3030;
+
+}
+
+
+/* =========================================================
+   ULTRASONIC DISTANCE
+========================================================= */
+
+.diagnostic-distance {
+
+    color: #00ff66;
+
+    font-size: 23px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   ULTRASONIC CARDS ALWAYS GREEN
+========================================================= */
+
+.ultrasonic-card
+.diagnostic-sensor-led {
+
+    background: #00ff66;
+
+    border-color: #65ff9b;
+
+    box-shadow:
+        0 0 15px rgba(0,255,102,0.8);
+
+}
+
+
+/* =========================================================
+   LIMIT SWITCH
+========================================================= */
+
+#limitSwitchDiagnosticCard
+.diagnostic-sensor-status {
+
+    color: #00ff66;
+
+}
+
+
+/* =========================================================
+   LIMIT SWITCH CLOSED / RED
+========================================================= */
+
+#limitSwitchDiagnosticCard.red
+.diagnostic-sensor-status {
+
+    color: #ff3030;
+
+}
+
+
+/* =========================================================
+   DIAGNOSTICS FOOTER
+========================================================= */
+
+#diagnosticsPage .jog-footer {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   LARGE SCREENS
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    #diagnosticsPage {
+
+        padding: 12px 20px;
+
+    }
+
+
+    .diagnostics-grid {
+
+        column-gap: 55px;
+
+        margin-top: 70px;
+
+    }
+
+
+    .diagnostics-column {
+
+        gap: 55px;
+
+    }
+
+
+    .diagnostic-sensor-card {
+
+        min-height: 105px;
+
+        padding: 14px 18px;
+
+        gap: 7px;
+
+    }
+
+
+    .diagnostic-sensor-title {
+
+        font-size: 13px;
+
+    }
+
+
+    .diagnostic-sensor-led {
+
+        width: 20px;
+
+        height: 20px;
+
+        min-width: 20px;
+
+    }
+
+
+    .diagnostic-sensor-status {
+
+        font-size: 13px;
+
+    }
+
+
+    .diagnostic-distance {
+
+        font-size: 21px;
+
+    }
+
+
+    #diagnosticsPage .jog-footer {
+
+        margin-top: 12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MEDIUM SCREENS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    #diagnosticsPage {
+
+        padding: 8px 12px;
+
+    }
+
+
+    .diagnostics-grid {
+
+        column-gap: 15px;
+
+        margin-top: 10px;
+
+    }
+
+
+    .diagnostics-column {
+
+        gap: 12px;
+
+    }
+
+
+    .diagnostic-sensor-card {
+
+        min-height: 90px;
+
+        padding: 10px;
+
+        gap: 6px;
+
+    }
+
+
+    .diagnostic-sensor-title {
+
+        font-size: 10px;
+
+        letter-spacing: 0.8px;
+
+    }
+
+
+    .diagnostic-sensor-led {
+
+        width: 16px;
+
+        height: 16px;
+
+        min-width: 16px;
+
+        border-width: 1px;
+
+    }
+
+
+    .diagnostic-sensor-status {
+
+        font-size: 10px;
+
+        letter-spacing: 0.7px;
+
+    }
+
+
+    .diagnostic-distance {
+
+        font-size: 16px;
+
+    }
+
+
+    #diagnosticsPage .jog-footer {
+
+        margin-top: 8px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL SCREENS
+========================================================= */
+
+@media (max-width: 600px) {
+
+    #diagnosticsPage {
+
+        padding: 5px 7px;
+
+    }
+
+
+    .diagnostics-grid {
+
+        column-gap: 7px;
+
+        margin-top: 6px;
+
+    }
+
+
+    .diagnostics-column {
+
+        gap: 7px;
+
+    }
+
+
+    .diagnostic-sensor-card {
+
+        min-height: 70px;
+
+        padding: 6px;
+
+        gap: 4px;
+
+    }
+
+
+    .diagnostic-sensor-title {
+
+        font-size: 7px;
+
+        letter-spacing: 0.4px;
+
+    }
+
+
+    .diagnostic-sensor-led {
+
+        width: 10px;
+
+        height: 10px;
+
+        min-width: 10px;
+
+        border-width: 1px;
+
+    }
+
+
+    .diagnostic-sensor-status {
+
+        font-size: 7px;
+
+        letter-spacing: 0.3px;
+
+    }
+
+
+    .diagnostic-distance {
+
+        font-size: 11px;
+
+    }
+
+
+    #diagnosticsPage .jog-footer {
+
+        margin-top: 5px;
+
+    }
+
+}
+/* =========================================================
+   OPTIMIZATION PAGE
+========================================================= */
+
+#optimizationPage {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   OPTIMIZATION GRID
+========================================================= */
+
+.optimization-grid {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 45px;
+
+    margin-top: 35px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.optimization-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+}
+
+
+/* =========================================================
+   OPTIMIZATION CARD
+========================================================= */
+
+.optimization-card {
+
+    width: 100%;
+
+    min-height: 125px;
+
+    padding: 18px 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    background: #101a20;
+
+    border: 2px solid #00ff66;
+
+    border-radius: 6px;
+
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,0.45);
+
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.optimization-card-title {
+
+    color: #8eaeba;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   WHITE INPUT AREA
+========================================================= */
+
+.optimization-input-area {
+
+    width: 70%;
+
+    min-height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 5px 10px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border-radius: 5px;
+
+}
+
+
+/* =========================================================
+   TIME INPUT
+========================================================= */
+
+.optimization-input {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #111111;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   INPUT UNIT
+========================================================= */
+
+.optimization-unit {
+
+    color: #333333;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.8px;
+
+}
+
+
+/* =========================================================
+   SPEED DROPDOWN
+========================================================= */
+
+.optimization-select {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #111111;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    text-align: center;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+#optimizationPage .jog-footer {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   LARGE SCREENS
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    #optimizationPage {
+
+        padding: 12px 20px;
+
+    }
+
+
+    .optimization-grid {
+
+        column-gap: 55px;
+
+        margin-top: 40px;
+
+    }
+
+
+    .optimization-column {
+
+        gap: 28px;
+
+    }
+
+
+    .optimization-card {
+
+        min-height: 125px;
+
+    }
+
+
+    #optimizationPage .jog-footer {
+
+        margin-top: 18px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MEDIUM SCREENS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    #optimizationPage {
+
+        padding: 8px 12px;
+
+    }
+
+
+    .optimization-grid {
+
+        column-gap: 15px;
+
+        margin-top: 20px;
+
+    }
+
+
+    .optimization-column {
+
+        gap: 12px;
+
+    }
+
+
+    .optimization-card {
+
+        min-height: 90px;
+
+        padding: 10px;
+
+        gap: 8px;
+
+    }
+
+
+    .optimization-card-title {
+
+        font-size: 10px;
+
+        letter-spacing: 0.8px;
+
+    }
+
+
+    .optimization-input-area {
+
+        width: 75%;
+
+        min-height: 34px;
+
+    }
+
+
+    .optimization-input {
+
+        font-size: 13px;
+
+    }
+
+
+    .optimization-select {
+
+        font-size: 12px;
+
+    }
+
+
+    .optimization-unit {
+
+        font-size: 8px;
+
+    }
+
+
+    #optimizationPage .jog-footer {
+
+        margin-top: 8px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL SCREENS
+========================================================= */
+
+@media (max-width: 600px) {
+
+    #optimizationPage {
+
+        padding: 5px 7px;
+
+    }
+
+
+    .optimization-grid {
+
+        column-gap: 7px;
+
+        margin-top: 10px;
+
+    }
+
+
+    .optimization-column {
+
+        gap: 7px;
+
+    }
+
+
+    .optimization-card {
+
+        min-height: 70px;
+
+        padding: 6px;
+
+        gap: 5px;
+
+    }
+
+
+    .optimization-card-title {
+
+        font-size: 7px;
+
+        letter-spacing: 0.4px;
+
+    }
+
+
+    .optimization-input-area {
+
+        width: 80%;
+
+        min-height: 27px;
+
+        padding: 3px 5px;
+
+    }
+
+
+    .optimization-input {
+
+        font-size: 10px;
+
+    }
+
+
+    .optimization-select {
+
+        font-size: 9px;
+
+    }
+
+
+    .optimization-unit {
+
+        font-size: 6px;
+
+    }
+
+
+    #optimizationPage .jog-footer {
+
+        margin-top: 5px;
+
+    }
+
+}

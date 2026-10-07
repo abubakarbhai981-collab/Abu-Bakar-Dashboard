@@ -181,7 +181,7 @@
 
                 <!-- SENSOR DIAGNOSTICS -->
 
-                <button class="mode-card" onclick="openMode('sensors')">
+                <button class="mode-card" onclick="openMode('diagnostics')">
 
                     <div class="card-number">05</div>
 
@@ -934,6 +934,881 @@
 
 
     <!-- MDI FOOTER -->
+
+    <div class="jog-footer">
+
+        <button
+            class="back-main-btn"
+            onclick="backToMain()"
+        >
+            ← BACK TO MAIN DASHBOARD
+        </button>
+
+        <span>
+            ESP32-S3 CONTROLLER
+        </span>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     AUTOMATIC CONTROL PAGE
+========================= -->
+
+<section id="automaticPage" class="jog-page">
+
+    <!-- AUTOMATIC HEADER -->
+    <div class="jog-header">
+
+        <div>
+
+            <div class="jog-kicker">
+                AUTOMATIC OPERATION
+            </div>
+
+            <h1>AUTOMATIC CONTROL</h1>
+
+            <p>
+                Complete Automatic Production Cycle
+            </p>
+
+        </div>
+
+        <div class="jog-status">
+
+            <span class="status-dot"></span>
+
+            AUTOMATIC MODE ACTIVE
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         AUTOMATIC COMMANDS
+    ========================== -->
+
+    <div class="automatic-command-section">
+
+        <div class="group-title">
+            <span>01</span>
+            MACHINE CONTROL
+        </div>
+
+
+        <div class="automatic-command-buttons">
+
+            <!-- START -->
+            <button
+                class="automatic-command-btn"
+                id="automaticStartBtn"
+                onclick="automaticStart()"
+            >
+                START
+            </button>
+
+
+            <!-- PAUSE / RESUME -->
+            <button
+                class="automatic-command-btn"
+                id="automaticPauseBtn"
+                onclick="automaticPause()"
+            >
+                PAUSE
+            </button>
+
+
+            <!-- RESTART -->
+            <button
+                class="automatic-command-btn"
+                id="automaticRestartBtn"
+                onclick="automaticRestart()"
+            >
+                RESTART
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         AUTOMATIC MONITORING
+    ========================== -->
+
+    <div class="automatic-monitor-section">
+
+        <div class="group-title">
+            <span>02</span>
+            PROCESS MONITORING
+        </div>
+
+
+        <div class="automatic-monitor-grid">
+
+    <!-- =========================
+         SELECTIONS
+    ========================== -->
+    <div class="automatic-selections-group">
+
+        <div class="automatic-group-title">
+            SELECTIONS
+        </div>
+
+
+        <!-- BOTTLES TO FILL -->
+        <div class="automatic-monitor-card">
+
+            <div class="automatic-monitor-content automatic-selection-content">
+
+                <div class="automatic-monitor-title">
+                    BOTTLES TO FILL
+                </div>
+
+                <select
+                    class="automatic-selection"
+                    id="automaticBottleSelection"
+                    onchange="automaticBottleSelectionChanged()"
+                >
+                    <option value="ALL" selected>ALL</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTTLE FILLING PERCENTAGE -->
+        <div class="automatic-monitor-card">
+
+            <div class="automatic-monitor-content automatic-selection-content">
+
+                <div class="automatic-monitor-title">
+                    BOTTLE FILLING PERCENTAGE
+                </div>
+
+                <select
+                    class="automatic-selection"
+                    id="automaticFillSelection"
+                    onchange="automaticFillSelectionChanged()"
+                >
+                    <option value="10">10 %</option>
+                    <option value="20">20 %</option>
+                    <option value="30">30 %</option>
+                    <option value="40">40 %</option>
+                    <option value="50">50 %</option>
+                    <option value="60">60 %</option>
+                    <option value="70">70 %</option>
+                    <option value="80">80 %</option>
+                    <option value="90">90 %</option>
+                    <option value="100" selected>100 %</option>
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         PROCESS MONITOR
+    ========================== -->
+    <div class="automatic-process-group">
+
+        <div class="automatic-group-title">
+            PROCESS MONITOR
+        </div>
+
+
+        <!-- FLUID / TANK -->
+        <div class="automatic-monitor-card">
+
+            <div class="automatic-monitor-content">
+
+                <div class="automatic-monitor-title">
+                    FLUID / TANK
+                </div>
+
+                <div
+                    class="automatic-monitor-value"
+                    id="automaticWaterValue"
+                >
+                    75 %
+                </div>
+
+            </div>
+
+            <span
+                class="automatic-led"
+                id="automaticWaterLed"
+            ></span>
+
+        </div>
+
+
+        <!-- CONVEYOR BOTTLES -->
+        <div class="automatic-monitor-card">
+
+            <span
+                class="automatic-led"
+                id="automaticConveyorLed"
+            ></span>
+
+            <div class="automatic-monitor-content">
+
+                <div class="automatic-monitor-title">
+                    CONVEYOR BOTTLES
+                </div>
+
+                <div
+                    class="automatic-monitor-value"
+                    id="automaticConveyorValue"
+                >
+                    4 BOTTLES
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STORAGE BOTTLES -->
+        <div class="automatic-monitor-card">
+
+            <div class="automatic-monitor-content">
+
+                <div class="automatic-monitor-title">
+                    STORAGE BOTTLES
+                </div>
+
+                <div
+                    class="automatic-monitor-value"
+                    id="automaticStorageValue"
+                >
+                    3 BOTTLES
+                </div>
+
+            </div>
+
+            <span
+                class="automatic-led"
+                id="automaticStorageLed"
+            ></span>
+
+        </div>
+
+
+        <!-- CAPS -->
+        <div class="automatic-monitor-card">
+
+            <span
+                class="automatic-led"
+                id="automaticCapsLed"
+            ></span>
+
+            <div class="automatic-monitor-content">
+
+                <div class="automatic-monitor-title">
+                    CAPS
+                </div>
+
+                <div
+                    class="automatic-monitor-value"
+                    id="automaticCapsValue"
+                >
+                    PRESENT
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- AUTOMATIC FOOTER -->
+<div class="jog-footer">
+
+    <button
+        class="back-main-btn"
+        onclick="backToMain()"
+    >
+        ← BACK TO MAIN DASHBOARD
+    </button>
+
+    <span>
+        ESP32-S3 CONTROLLER
+    </span>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+     OPTIMIZATION PAGE
+========================================================= -->
+
+<section id="optimizationPage" class="jog-page">
+
+    <!-- OPTIMIZATION HEADER -->
+    <div class="jog-header">
+
+        <div>
+
+            <div class="jog-kicker">
+                MACHINE OPTIMIZATION
+            </div>
+
+            <h1>
+                OPTIMIZATION
+            </h1>
+
+            <p>
+                Configure Machine Timing &amp; Stepper Speed
+            </p>
+
+        </div>
+
+        <div class="jog-status">
+
+            <span class="status-dot"></span>
+
+            OPTIMIZATION MODE ACTIVE
+
+        </div>
+
+    </div>
+
+
+    <!-- OPTIMIZATION SETTINGS -->
+
+    <div class="optimization-grid">
+
+
+        <!-- LEFT COLUMN -->
+
+        <div class="optimization-column">
+
+
+            <!-- LOADING TIME -->
+
+            <div class="optimization-card">
+
+                <div class="optimization-card-title">
+                    LOADING TIME
+                </div>
+
+                <div class="optimization-input-area">
+
+                    <input
+                        type="number"
+                        id="loadingTime"
+                        class="optimization-input"
+                        min="0"
+                        max="10"
+                        step="0.001"
+                        placeholder="0.000"
+                        oninput="validateOptimizationInput(this)"
+                    >
+
+                    <span class="optimization-unit">
+                        SEC
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FILLING TIME -->
+
+            <div class="optimization-card">
+
+                <div class="optimization-card-title">
+                    FILLING TIME
+                </div>
+
+                <div class="optimization-input-area">
+
+                    <input
+                        type="number"
+                        id="fillingTime"
+                        class="optimization-input"
+                        min="0"
+                        max="10"
+                        step="0.001"
+                        placeholder="0.000"
+                        oninput="validateOptimizationInput(this)"
+                    >
+
+                    <span class="optimization-unit">
+                        SEC
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEPPER 1 SPEED -->
+
+            <div class="optimization-card">
+
+                <div class="optimization-card-title">
+                    STEPPER 1 SPEED
+                </div>
+
+                <div class="optimization-input-area">
+
+                    <select
+                        id="stepper1Speed"
+                        class="optimization-select"
+                    >
+                        <option value="LOW">LOW</option>
+                        <option value="HIGH">HIGH</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT COLUMN -->
+
+        <div class="optimization-column">
+
+
+            <!-- DOWN PUMP -->
+
+            <div class="optimization-card">
+
+                <div class="optimization-card-title">
+                    DOWN PUMP RUNNING TIME
+                </div>
+
+                <div class="optimization-input-area">
+
+                    <input
+                        type="number"
+                        id="downPumpTime"
+                        class="optimization-input"
+                        min="0"
+                        max="10"
+                        step="0.001"
+                        placeholder="0.000"
+                        oninput="validateOptimizationInput(this)"
+                    >
+
+                    <span class="optimization-unit">
+                        SEC
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- TIGHTENING MOTOR -->
+
+            <div class="optimization-card">
+
+                <div class="optimization-card-title">
+                    TIGHTENING MOTOR RUNNING TIME
+                </div>
+
+                <div class="optimization-input-area">
+
+                    <input
+                        type="number"
+                        id="tighteningMotorTime"
+                        class="optimization-input"
+                        min="0"
+                        max="10"
+                        step="0.001"
+                        placeholder="0.000"
+                        oninput="validateOptimizationInput(this)"
+                    >
+
+                    <span class="optimization-unit">
+                        SEC
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- UP PUMP -->
+
+            <div class="optimization-card">
+
+                <div class="optimization-card-title">
+                    UP PUMP RUNNING TIME
+                </div>
+
+                <div class="optimization-input-area">
+
+                    <input
+                        type="number"
+                        id="upPumpTime"
+                        class="optimization-input"
+                        min="0"
+                        max="10"
+                        step="0.001"
+                        placeholder="0.000"
+                        oninput="validateOptimizationInput(this)"
+                    >
+
+                    <span class="optimization-unit">
+                        SEC
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- OPTIMIZATION FOOTER -->
+
+    <div class="jog-footer">
+
+        <button
+            class="back-main-btn"
+            onclick="backToMain()"
+        >
+            ← BACK TO MAIN DASHBOARD
+        </button>
+
+        <span>
+            ESP32-S3 CONTROLLER
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SENSOR DIAGNOSTICS PAGE
+========================================================= -->
+
+<section id="diagnosticsPage" class="jog-page">
+
+    <!-- DIAGNOSTICS HEADER -->
+    <div class="jog-header">
+
+        <div>
+
+            <div class="jog-kicker">
+                SENSOR DIAGNOSTICS
+            </div>
+
+            <h1>
+                SENSOR DIAGNOSTICS
+            </h1>
+
+            <p>
+                Real-Time Sensor Status Monitoring
+            </p>
+
+        </div>
+
+        <div class="jog-status">
+
+            <span class="status-dot"></span>
+
+            DIAGNOSTICS MODE ACTIVE
+
+        </div>
+
+    </div>
+
+
+    <!-- SENSOR GRID -->
+
+    <div class="diagnostics-grid">
+
+
+        <!-- =================================================
+             LEFT COLUMN
+        ================================================== -->
+
+        <div class="diagnostics-column">
+
+
+            <!-- IR 1 -->
+
+            <div
+                class="diagnostic-sensor-card"
+                id="ir1DiagnosticCard"
+            >
+
+                <div class="diagnostic-sensor-title">
+                    IR SENSOR 1
+                </div>
+
+                <span
+                    class="diagnostic-sensor-led"
+                    id="ir1DiagnosticLed"
+                ></span>
+
+                <div
+                    class="diagnostic-sensor-status"
+                    id="ir1DiagnosticStatus"
+                >
+                    NOT DETECTED
+                </div>
+
+            </div>
+
+
+            <!-- IR 2 -->
+
+            <div
+                class="diagnostic-sensor-card"
+                id="ir2DiagnosticCard"
+            >
+
+                <div class="diagnostic-sensor-title">
+                    IR SENSOR 2
+                </div>
+
+                <span
+                    class="diagnostic-sensor-led"
+                    id="ir2DiagnosticLed"
+                ></span>
+
+                <div
+                    class="diagnostic-sensor-status"
+                    id="ir2DiagnosticStatus"
+                >
+                    NOT DETECTED
+                </div>
+
+            </div>
+
+
+            <!-- IR 3 -->
+
+            <div
+                class="diagnostic-sensor-card"
+                id="ir3DiagnosticCard"
+            >
+
+                <div class="diagnostic-sensor-title">
+                    IR SENSOR 3
+                </div>
+
+                <span
+                    class="diagnostic-sensor-led"
+                    id="ir3DiagnosticLed"
+                ></span>
+
+                <div
+                    class="diagnostic-sensor-status"
+                    id="ir3DiagnosticStatus"
+                >
+                    NOT DETECTED
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CENTER COLUMN
+        ================================================== -->
+
+        <div class="diagnostics-column">
+
+
+            <!-- ULTRASONIC 1 -->
+
+            <div
+                class="diagnostic-sensor-card ultrasonic-card"
+                id="ultrasonic1DiagnosticCard"
+            >
+
+                <div class="diagnostic-sensor-title">
+                    ULTRASONIC SENSOR 1
+                </div>
+
+                <span
+                    class="diagnostic-sensor-led"
+                    id="ultrasonic1DiagnosticLed"
+                ></span>
+
+                <div
+                    class="diagnostic-distance"
+                    id="ultrasonic1DiagnosticDistance"
+                >
+                    0.0 cm
+                </div>
+
+            </div>
+
+
+            <!-- LIMIT SWITCH -->
+
+            <div
+                class="diagnostic-sensor-card"
+                id="limitSwitchDiagnosticCard"
+            >
+
+                <div class="diagnostic-sensor-title">
+                    LIMIT SWITCH
+                </div>
+
+                <span
+                    class="diagnostic-sensor-led"
+                    id="limitSwitchDiagnosticLed"
+                ></span>
+
+                <div
+                    class="diagnostic-sensor-status"
+                    id="limitSwitchDiagnosticStatus"
+                >
+                    OPEN
+                </div>
+
+            </div>
+
+
+            <!-- ULTRASONIC 2 -->
+
+            <div
+                class="diagnostic-sensor-card ultrasonic-card"
+                id="ultrasonic2DiagnosticCard"
+            >
+
+                <div class="diagnostic-sensor-title">
+                    ULTRASONIC SENSOR 2
+                </div>
+
+                <span
+                    class="diagnostic-sensor-led"
+                    id="ultrasonic2DiagnosticLed"
+                ></span>
+
+                <div
+                    class="diagnostic-distance"
+                    id="ultrasonic2DiagnosticDistance"
+                >
+                    0.0 cm
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             RIGHT COLUMN
+        ================================================== -->
+
+        <div class="diagnostics-column">
+
+
+            <!-- IR 4 -->
+
+            <div
+                class="diagnostic-sensor-card"
+                id="ir4DiagnosticCard"
+            >
+
+                <div class="diagnostic-sensor-title">
+                    IR SENSOR 4
+                </div>
+
+                <span
+                    class="diagnostic-sensor-led"
+                    id="ir4DiagnosticLed"
+                ></span>
+
+                <div
+                    class="diagnostic-sensor-status"
+                    id="ir4DiagnosticStatus"
+                >
+                    NOT DETECTED
+                </div>
+
+            </div>
+
+
+            <!-- IR 5 -->
+
+            <div
+                class="diagnostic-sensor-card"
+                id="ir5DiagnosticCard"
+            >
+
+                <div class="diagnostic-sensor-title">
+                    IR SENSOR 5
+                </div>
+
+                <span
+                    class="diagnostic-sensor-led"
+                    id="ir5DiagnosticLed"
+                ></span>
+
+                <div
+                    class="diagnostic-sensor-status"
+                    id="ir5DiagnosticStatus"
+                >
+                    NOT DETECTED
+                </div>
+
+            </div>
+
+
+            <!-- IR 6 -->
+
+            <div
+                class="diagnostic-sensor-card"
+                id="ir6DiagnosticCard"
+            >
+
+                <div class="diagnostic-sensor-title">
+                    IR SENSOR 6
+                </div>
+
+                <span
+                    class="diagnostic-sensor-led"
+                    id="ir6DiagnosticLed"
+                ></span>
+
+                <div
+                    class="diagnostic-sensor-status"
+                    id="ir6DiagnosticStatus"
+                >
+                    NOT DETECTED
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DIAGNOSTICS FOOTER -->
 
     <div class="jog-footer">
 
